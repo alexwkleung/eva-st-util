@@ -4,6 +4,7 @@
   "description": "Simple wrappers around unist syntax tree utils.",
   "main": "src/eva-st-util.js",
   "typings": "src/eva-st-util",
+  "type": "module",
   "scripts": {
   },
   "repository": {
