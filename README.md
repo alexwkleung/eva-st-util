@@ -56,9 +56,9 @@ For converting HTML to Markdown, these are the packages that it uses:
 
 For any explanation of what these packages do, you must refer to their respective documentation pages.
 
-**Note:** Your string must contain properly serialized HTML/Markdown, or else it won't return the desired output you want.
-
 # Example Usage 
+
+**Note:** Your string must contain properly serialized HTML/Markdown, or else it won't return the desired output you want.
 
 **Markdown to HTML:**
 
