@@ -65,7 +65,7 @@ For any explanation of what these packages do, you must refer to their respectiv
 ```typescript
 import { EvaSTUtil } from 'eva-st-util'
 
-const MarkdownToHTML = EvaSTUtil.MDtoHTML('<your string containing markdown>');
+const MarkdownToHTML = EvaSTUtil.MDtoHTML_ST('<your string containing markdown>');
 
 console.log(MarkdownToHTML);
 ```
@@ -90,7 +90,7 @@ Then it would return this:
 ```typescript
 import { EvaSTUtil } from 'eva-st-util'
 
-const HTMLtoMarkdown = EvaSTUtil.MarkdownToHTML('<your string containing html nodes>');
+const HTMLtoMarkdown = EvaSTUtil.HTMLtoMarkdown_ST('<your string containing html nodes>');
 
 console.log(HTMLtoMarkdown);
 ```

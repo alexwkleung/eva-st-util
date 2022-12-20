@@ -5,7 +5,9 @@ import { toHast } from 'mdast-util-to-hast'
 import { toHtml } from 'hast-util-to-html'
 import { fromMarkdown } from 'mdast-util-from-markdown'
 
+//class EvaSTUtil
 export class EvaSTUtil {
+    //markdown to html 
     static MDtoHTML_ST(dataString: string) {
         const _mdast = fromMarkdown(String(dataString));
         const _hast = toHast(_mdast)!;
@@ -14,6 +16,7 @@ export class EvaSTUtil {
         return _html;
     }
 
+    //html to markdown
     static HTMLtoMarkdown_ST(dataString: string) {
         const _hast = fromHtml(String(dataString), { 
             fragment: true 
