@@ -20,30 +20,43 @@ import { EvaSTUtil } from 'eva-st-util'
 
 # Functions
 
-At the moment, there are two functions:
+At the moment, there are two functions within `class EvaSTUtil`:
 
 1) Converting Markdown to HTML.
+
+```typescript
+static MDtoHTML_ST(dataString: string)
+```
+
 2) Converting HTML to Markdown.
+
+```typescript
+static HTMLtoMarkdown_ST(dataString: string)
+```
+
+Both functions return a string of the converted syntax tree. 
+
+Go to [Example Usage](#example-usage) to see how to use these functions.
 
 For converting Markdown to HTML, these are the packages that it uses:
 
-[mdast-util-from-markdown](https://github.com/syntax-tree/mdast-util-from-markdown)
+- [mdast-util-from-markdown](https://github.com/syntax-tree/mdast-util-from-markdown)
 
-[mdast-util-to-hast](https://github.com/syntax-tree/mdast-util-to-hast)
+- [mdast-util-to-hast](https://github.com/syntax-tree/mdast-util-to-hast)
 
-[hast-util-to-html](https://github.com/syntax-tree/hast-util-to-html)
+- [hast-util-to-html](https://github.com/syntax-tree/hast-util-to-html)
 
 For converting HTML to Markdown, these are the packages that it uses:
 
-[hast-util-from-html](https://github.com/syntax-tree/hast-util-from-html)
+- [hast-util-from-html](https://github.com/syntax-tree/hast-util-from-html)
 
-[hast-util-to-mdast](https://github.com/syntax-tree/hast-util-to-mdast)
+- [hast-util-to-mdast](https://github.com/syntax-tree/hast-util-to-mdast)
 
-[mdast-util-to-markdown](https://github.com/syntax-tree/mdast-util-to-markdown)
-
-Both functions return a string of the converted syntax tree.
+- [mdast-util-to-markdown](https://github.com/syntax-tree/mdast-util-to-markdown)
 
 For any explanation of what these packages do, you must refer to their respective documentation pages.
+
+**Note:** Your string must contain properly serialized HTML/Markdown, or else it won't return the desired output you want.
 
 # Example Usage 
 
