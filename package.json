@@ -2,7 +2,7 @@
   "name": "eva-st-util",
   "version": "1.0.0",
   "description": "Simple wrappers around unist syntax tree utils.",
-  "main": "dist/eva-st-util.js",
+  "main": "src/eva-st-util.js",
   "typings": "src/eva-st-util",
   "scripts": {
   },
