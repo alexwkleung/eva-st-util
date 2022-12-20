@@ -1,0 +1,29 @@
+{
+  "name": "eva-st-util",
+  "version": "1.0.0",
+  "description": "Simple wrappers around unist syntax tree utils.",
+  "main": "index.js",
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexwkleung/Eva-ST-Util.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alexwkleung/Eva-ST-Util/issues"
+  },
+  "homepage": "https://github.com/alexwkleung/Eva-ST-Util#readme",
+  "devDependencies": {
+    "typescript": "^4.9.4"
+  },
+  "dependencies": {
+    "hast-util-from-html": "^1.0.0",
+    "hast-util-to-html": "^8.0.3",
+    "hast-util-to-mdast": "^8.4.1",
+    "mdast-util-from-markdown": "^1.2.0",
+    "mdast-util-to-hast": "^12.2.4",
+    "mdast-util-to-markdown": "^1.4.0"
+  }
+}
