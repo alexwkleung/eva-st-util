@@ -1,6 +1,6 @@
 # Eva-ST-Util
 
-Simple wrappers around unist syntax tree utils.
+Simple wrapper utility around unist syntax tree utils.
 
 This is ESM-only.
 
