@@ -5,8 +5,7 @@
   "main": "src/eva-st-util.js",
   "typings": "src/eva-st-util",
   "type": "module",
-  "scripts": {
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/alexwkleung/Eva-ST-Util.git"
@@ -25,7 +24,9 @@
     "hast-util-to-html": "^8.0.3",
     "hast-util-to-mdast": "^8.4.1",
     "mdast-util-from-markdown": "^1.2.0",
+    "mdast-util-gfm": "^2.0.1",
     "mdast-util-to-hast": "^12.2.4",
-    "mdast-util-to-markdown": "^1.4.0"
+    "mdast-util-to-markdown": "^1.4.0",
+    "micromark-extension-gfm": "^2.0.1"
   }
 }

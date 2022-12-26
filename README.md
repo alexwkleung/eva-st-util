@@ -46,6 +46,10 @@ For converting Markdown to HTML, these are the packages that it uses:
 
 - [hast-util-to-html](https://github.com/syntax-tree/hast-util-to-html)
 
+- [mdast-util-gfm](https://github.com/syntax-tree/mdast-util-gfm)
+
+- [micromark-extension-gfm](https://github.com/micromark/micromark-extension-gfm)
+
 For converting HTML to Markdown, these are the packages that it uses:
 
 - [hast-util-from-html](https://github.com/syntax-tree/hast-util-from-html)
@@ -53,6 +57,10 @@ For converting HTML to Markdown, these are the packages that it uses:
 - [hast-util-to-mdast](https://github.com/syntax-tree/hast-util-to-mdast)
 
 - [mdast-util-to-markdown](https://github.com/syntax-tree/mdast-util-to-markdown)
+
+- [mdast-util-gfm](https://github.com/syntax-tree/mdast-util-gfm)
+
+- [micromark-extension-gfm](https://github.com/micromark/micromark-extension-gfm)
 
 For any explanation of what these packages do, you must refer to their respective documentation pages.
 
@@ -74,7 +82,6 @@ If this was stored in a string from your markdown file/editor:
 
 ```markdown
 # header 1
-
 hello world
 ```
 
