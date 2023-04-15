@@ -26,8 +26,10 @@
     "hast-util-to-mdast": "^8.4.1",
     "mdast-util-from-markdown": "^1.2.0",
     "mdast-util-gfm": "^2.0.1",
+    "mdast-util-math": "^2.0.2",
     "mdast-util-to-hast": "^12.2.4",
     "mdast-util-to-markdown": "^1.4.0",
-    "micromark-extension-gfm": "^2.0.1"
+    "micromark-extension-gfm": "^2.0.1",
+    "micromark-extension-math": "^2.1.0"
   }
 }

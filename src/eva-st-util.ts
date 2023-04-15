@@ -8,6 +8,8 @@ import { gfmFromMarkdown, gfmToMarkdown } from 'mdast-util-gfm'
 import { gfm } from 'micromark-extension-gfm'
 import { sanitize } from 'hast-util-sanitize'
 import { HastNode } from 'mdast-util-to-hast/lib'
+import { math } from 'micromark-extension-math'
+import { mathFromMarkdown, mathToMarkdown } from 'mdast-util-math'
 
 /**
  * @class EvaSTUtil
@@ -27,8 +29,8 @@ export class EvaSTUtil {
     static MDtoHTML_ST(dataString: string) {
         //from mdast (markdown string)
         const _mdast = fromMarkdown(String(dataString), {
-            extensions: [gfm()],
-            mdastExtensions: [gfmFromMarkdown()]
+            extensions: [gfm(), math()],
+            mdastExtensions: [gfmFromMarkdown(), mathFromMarkdown()]
         });
 
         //convert mdast to hast
@@ -61,7 +63,7 @@ export class EvaSTUtil {
 
         //convert mdast to markdown
         const _md: string = toMarkdown(_mdast, {
-            extensions: [gfmToMarkdown()]
+            extensions: [gfmToMarkdown(), mathToMarkdown()]
         });
 
         //return markdown

@@ -54,6 +54,8 @@ For converting Markdown to HTML, these are the packages that it uses:
 
 - [hast-util-sanitize](https://github.com/syntax-tree/hast-util-sanitize)
 
+- [mdast-util-math](https://github.com/syntax-tree/mdast-util-math)
+
 For converting HTML to Markdown, these are the packages that it uses:
 
 - [hast-util-from-html](https://github.com/syntax-tree/hast-util-from-html)
@@ -66,11 +68,15 @@ For converting HTML to Markdown, these are the packages that it uses:
 
 - [micromark-extension-gfm](https://github.com/micromark/micromark-extension-gfm)
 
+- [mdast-util-math](https://github.com/syntax-tree/mdast-util-math)
+
 For any explanation of what these packages do, you must refer to their respective documentation pages listed above.
 
 # Example Usage 
 
-**Note:** Your string must contain properly serialized HTML/Markdown, or else it may not return the desired output.
+**Note (1):** Your string must contain properly serialized HTML/Markdown or else it may not return the desired output.
+
+**Note (2):** If you are using math syntax (KaTeX), you'll need the `katex.css` or `katex.min.css` stylesheet and the fonts from the `fonts` folder. These assets can be found in any downloaded [KaTeX release](https://github.com/KaTeX/KaTeX/releases).
 
 **Markdown to HTML:**
 
