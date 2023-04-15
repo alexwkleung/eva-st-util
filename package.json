@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/alexwkleung/Eva-ST-Util.git"
   },
-  "author": "",
+  "author": "alexwkleung",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/alexwkleung/Eva-ST-Util/issues"
@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "hast-util-from-html": "^1.0.0",
+    "hast-util-sanitize": "^4.1.0",
     "hast-util-to-html": "^8.0.3",
     "hast-util-to-mdast": "^8.4.1",
     "mdast-util-from-markdown": "^1.2.0",

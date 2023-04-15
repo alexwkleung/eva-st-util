@@ -6,10 +6,24 @@ import { toHtml } from 'hast-util-to-html'
 import { fromMarkdown } from 'mdast-util-from-markdown'
 import { gfmFromMarkdown, gfmToMarkdown } from 'mdast-util-gfm'
 import { gfm } from 'micromark-extension-gfm'
+import { sanitize } from 'hast-util-sanitize'
+import { HastNode } from 'mdast-util-to-hast/lib'
 
-//class EvaSTUtil
+/**
+ * @class EvaSTUtil
+ * 
+ * @file `eva-st-uti.ts`
+ */
 export class EvaSTUtil {
-    //markdown to html 
+    /**
+     * MDtoHTML_ST function 
+     * 
+     * convert markdown string to html string
+     * 
+     * @member static 
+     * @param dataString string
+     * @returns sanitized html string
+     */
     static MDtoHTML_ST(dataString: string) {
         //from mdast (markdown string)
         const _mdast = fromMarkdown(String(dataString), {
@@ -18,16 +32,24 @@ export class EvaSTUtil {
         });
 
         //convert mdast to hast
-        const _hast = toHast(_mdast)!;
+        const _hast: HastNode | null | undefined = toHast(_mdast);
 
         //convert hast to html
-        const _html = toHtml(_hast);
+        const _html: string = toHtml(sanitize(_hast as HastNode));
 
         //return html
         return _html;
     }
 
-    //html to markdown
+    /**
+     * HTMLtoMarkdown_ST function
+     * 
+     * convert html string to markdown string
+     * 
+     * @member static
+     * @param dataString string
+     * @returns markdown string
+     */
     static HTMLtoMarkdown_ST(dataString: string) {
         //from hast (html string)
         const _hast = fromHtml(String(dataString), { 
@@ -38,7 +60,7 @@ export class EvaSTUtil {
         const _mdast = toMdast(_hast);
 
         //convert mdast to markdown
-        const _md = toMarkdown(_mdast, {
+        const _md: string = toMarkdown(_mdast, {
             extensions: [gfmToMarkdown()]
         });
 
