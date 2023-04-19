@@ -7,7 +7,6 @@ import { fromMarkdown } from 'mdast-util-from-markdown'
 import { gfmFromMarkdown, gfmToMarkdown } from 'mdast-util-gfm'
 import { gfm } from 'micromark-extension-gfm'
 import { sanitize } from 'hast-util-sanitize'
-import { HastNode } from 'mdast-util-to-hast/lib'
 import { math } from 'micromark-extension-math'
 import { mathFromMarkdown, mathToMarkdown } from 'mdast-util-math'
 
@@ -34,10 +33,10 @@ export class EvaSTUtil {
         });
 
         //convert mdast to hast
-        const _hast: HastNode | null | undefined = toHast(_mdast);
+        const _hast = toHast(_mdast)!;
 
         //convert hast to html
-        const _html: string = toHtml(sanitize(_hast as HastNode));
+        const _html: string = toHtml(sanitize(_hast));
 
         //return html
         return _html;
