@@ -2,10 +2,12 @@
   "name": "eva-st-util",
   "version": "1.0.0",
   "description": "Simple wrapper utility around unist syntax tree utils.",
-  "main": "src/eva-st-util.js",
-  "typings": "src/eva-st-util",
+  "main": "src/index.js",
+  "typings": "src/index.d.ts",
   "type": "module",
-  "scripts": {},
+  "scripts": {
+    "build": "npx tsc --build --clean && npx tsc --build"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/alexwkleung/Eva-ST-Util.git"
