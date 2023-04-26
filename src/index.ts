@@ -10,7 +10,7 @@ import { sanitize } from 'hast-util-sanitize'
 import { math } from 'micromark-extension-math'
 import { mathFromMarkdown, mathToMarkdown } from 'mdast-util-math'
 import { frontmatterFromMarkdown } from 'mdast-util-frontmatter'
-import { frontmatter } from 'micromark-extension-frontmatter'
+import { frontmatter, frontmatterHtml } from 'micromark-extension-frontmatter'
 import { visit } from 'unist-util-visit'
 
 //create type Root as any (workaround...)
@@ -35,11 +35,13 @@ export class EvaSTUtil {
         const _mdast = fromMarkdown(dataString, {
             extensions: [
                 gfm(),
-                math()
+                math(),
+                frontmatter(['yaml', 'toml'])
             ],
             mdastExtensions: [
                 gfmFromMarkdown(), 
                 mathFromMarkdown(), 
+                frontmatterFromMarkdown(['yaml', 'toml'])
             ]
         });
 

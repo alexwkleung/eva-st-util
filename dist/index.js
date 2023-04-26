@@ -30,11 +30,13 @@ export class EvaSTUtil {
         const _mdast = fromMarkdown(dataString, {
             extensions: [
                 gfm(),
-                math()
+                math(),
+                frontmatter(['yaml', 'toml'])
             ],
             mdastExtensions: [
                 gfmFromMarkdown(),
                 mathFromMarkdown(),
+                frontmatterFromMarkdown(['yaml', 'toml'])
             ]
         });
         //convert mdast to hast
