@@ -9,26 +9,31 @@ import { gfm } from 'micromark-extension-gfm';
 import { sanitize } from 'hast-util-sanitize';
 import { math } from 'micromark-extension-math';
 import { mathFromMarkdown, mathToMarkdown } from 'mdast-util-math';
+import { frontmatterFromMarkdown } from 'mdast-util-frontmatter';
 /**
  * @class EvaSTUtil
- *
- * @file `index.ts`
  */
 export class EvaSTUtil {
     /**
      * MDtoHTML_ST function
      *
-     * convert markdown string to html string
+     * Convert Markdown string to HTML string
      *
      * @member static
-     * @param dataString string
-     * @returns sanitized html string
+     * @param dataString Markdown string
+     * @returns Sanitized HTML string
      */
     static MDtoHTML_ST(dataString) {
         //from mdast (markdown string)
-        const _mdast = fromMarkdown(String(dataString), {
-            extensions: [gfm(), math()],
-            mdastExtensions: [gfmFromMarkdown(), mathFromMarkdown()]
+        const _mdast = fromMarkdown(dataString, {
+            extensions: [
+                gfm(),
+                math()
+            ],
+            mdastExtensions: [
+                gfmFromMarkdown(),
+                mathFromMarkdown(),
+            ]
         });
         //convert mdast to hast
         const _hast = toHast(_mdast);
@@ -40,24 +45,43 @@ export class EvaSTUtil {
     /**
      * HTMLtoMarkdown_ST function
      *
-     * convert html string to markdown string
+     * Convert HTML string to Markdown string
      *
      * @member static
-     * @param dataString string
-     * @returns markdown string
+     * @param dataString HTML string
+     * @returns Markdown string
      */
     static HTMLtoMarkdown_ST(dataString) {
         //from hast (html string)
-        const _hast = fromHtml(String(dataString), {
+        const _hast = fromHtml(dataString, {
             fragment: true
         });
         //convert hast to mdast
         const _mdast = toMdast(_hast);
         //convert mdast to markdown
         const _md = toMarkdown(_mdast, {
-            extensions: [gfmToMarkdown(), mathToMarkdown()]
+            extensions: [
+                gfmToMarkdown(),
+                mathToMarkdown(),
+            ]
         });
         //return markdown
         return _md;
+    }
+    /**
+     * getFrontMatter_ST function
+     *
+     * @param dataString Markdown string
+     * @returns mdast tree with frontmatter nodes
+     */
+    static getFrontmatterTree_ST(dataString) {
+        //from mdast (markdown string)
+        const _mdast = fromMarkdown(dataString, {
+            extensions: [],
+            mdastExtensions: [
+                frontmatterFromMarkdown(['yaml', 'toml'])
+            ]
+        });
+        return _mdast;
     }
 }
