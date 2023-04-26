@@ -22,8 +22,6 @@ import { EvaSTUtil } from 'eva-st-util'
 
 # Functions
 
-At the moment, there are two functions within `class EvaSTUtil`:
-
 1. Converting Markdown to HTML.
 
 ```typescript
@@ -38,7 +36,12 @@ static MDtoHTML_ST(dataString: string): string
 static HTMLtoMarkdown_ST(dataString: string): string
 ```
 
-Both functions return a string of the converted abstract syntax tree. 
+3. Get a tree with Frontmatter nodes.
+
+```typescript
+//type signature
+static getFrontmatterTree_ST(dataString: string): Root
+```
 
 Go to [Example Usage](#example-usage) to see how to use these functions.
 
@@ -71,6 +74,12 @@ For converting HTML to Markdown, these are the packages that it uses:
 - [micromark-extension-gfm](https://github.com/micromark/micromark-extension-gfm)
 
 - [mdast-util-math](https://github.com/syntax-tree/mdast-util-math)
+
+For getting a tree with Frontmatter nodes, thee are the packages that it uses:
+
+- [mdast-util-frontmatter](https://github.com/syntax-tree/mdast-util-frontmatter)
+
+- [micromark-extension-frontmatter](https://github.com/micromark/micromark-extension-frontmatter)
 
 For any explanation of what these packages do, you must refer to their respective documentation pages listed above.
 
