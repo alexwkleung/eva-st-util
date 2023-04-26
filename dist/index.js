@@ -79,9 +79,13 @@ export class EvaSTUtil {
         //from mdast (markdown string)
         const _mdast = fromMarkdown(dataString, {
             extensions: [
+                gfm(),
+                math(),
                 frontmatter(['yaml', 'toml'])
             ],
             mdastExtensions: [
+                gfmFromMarkdown(),
+                mathFromMarkdown(),
                 frontmatterFromMarkdown(['yaml', 'toml'])
             ]
         });
