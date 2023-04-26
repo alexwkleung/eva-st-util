@@ -27,13 +27,15 @@ At the moment, there are two functions within `class EvaSTUtil`:
 1. Converting Markdown to HTML.
 
 ```typescript
-static MDtoHTML_ST(dataString: string)
+//type signature
+static MDtoHTML_ST(dataString: string): string
 ```
 
 2. Converting HTML to Markdown.
 
 ```typescript
-static HTMLtoMarkdown_ST(dataString: string)
+//type signature
+static HTMLtoMarkdown_ST(dataString: string): string
 ```
 
 Both functions return a string of the converted abstract syntax tree. 

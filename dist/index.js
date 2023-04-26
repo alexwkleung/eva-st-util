@@ -12,7 +12,7 @@ import { mathFromMarkdown, mathToMarkdown } from 'mdast-util-math';
 /**
  * @class EvaSTUtil
  *
- * @file `eva-st-uti.ts`
+ * @file `index.ts`
  */
 export class EvaSTUtil {
     /**

@@ -25,7 +25,7 @@ export class EvaSTUtil {
      * @param dataString string
      * @returns sanitized html string
      */
-    static MDtoHTML_ST(dataString: string) {
+    static MDtoHTML_ST(dataString: string): string {
         //from mdast (markdown string)
         const _mdast = fromMarkdown(String(dataString), {
             extensions: [gfm(), math()],
@@ -51,7 +51,7 @@ export class EvaSTUtil {
      * @param dataString string
      * @returns markdown string
      */
-    static HTMLtoMarkdown_ST(dataString: string) {
+    static HTMLtoMarkdown_ST(dataString: string): string {
         //from hast (html string)
         const _hast = fromHtml(String(dataString), { 
             fragment: true 
