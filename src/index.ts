@@ -9,7 +9,8 @@ import { gfm } from 'micromark-extension-gfm'
 import { sanitize } from 'hast-util-sanitize'
 import { math } from 'micromark-extension-math'
 import { mathFromMarkdown, mathToMarkdown } from 'mdast-util-math'
-import { frontmatterFromMarkdown, frontmatterToMarkdown } from 'mdast-util-frontmatter'
+import { frontmatterFromMarkdown } from 'mdast-util-frontmatter'
+import { frontmatter } from 'micromark-extension-frontmatter'
 
 /**
  * @class EvaSTUtil
@@ -78,7 +79,7 @@ export class EvaSTUtil {
     }
 
     /**
-     * getFrontMatter_ST function
+     * getFrontmatterTree_ST function
      * 
      * @param dataString Markdown string
      * @returns mdast tree with frontmatter nodes
@@ -86,7 +87,9 @@ export class EvaSTUtil {
     static getFrontmatterTree_ST<T>(dataString: string): T {
         //from mdast (markdown string)
         const _mdast = fromMarkdown(dataString, {
-            extensions: [],
+            extensions: [
+                frontmatter(['yaml', 'toml'])
+            ],
             mdastExtensions: [
                 frontmatterFromMarkdown(['yaml', 'toml'])
             ]
