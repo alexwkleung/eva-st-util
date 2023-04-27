@@ -2,7 +2,7 @@
 
 Simple wrapper utility around unist syntax tree utils.
 
-I wanted a more efficient way of doing these conversions without having to install a chain of dependencies and setting up the parser every time I want to work with Markdown.
+I wanted a more efficient way of using these utilities without having to install a chain of dependencies and setting up the parser every time I want to work with Markdown.
 
 This is ESM-only.
 
@@ -40,7 +40,14 @@ static HTMLtoMarkdown_ST(dataString: string): string
 
 ```typescript
 //type signature
-static getFrontmatterTree_ST(dataString: string): Root
+static getFrontmatterTree_ST(dataString: string): Root<any>
+```
+
+4. Traverse a tree.
+
+```typescript
+//type signature
+static traverseTree_ST(tree: Root<any>, type: string): string[]
 ```
 
 Go to [Example Usage](#example-usage) to see how to use these functions.
@@ -75,11 +82,15 @@ For converting HTML to Markdown, these are the packages that it uses:
 
 - [mdast-util-math](https://github.com/syntax-tree/mdast-util-math)
 
-For getting a tree with Frontmatter nodes, thee are the packages that it uses:
+For getting a tree with Frontmatter nodes, these are the packages that it uses:
 
 - [mdast-util-frontmatter](https://github.com/syntax-tree/mdast-util-frontmatter)
 
 - [micromark-extension-frontmatter](https://github.com/micromark/micromark-extension-frontmatter)
+
+For traversing over a tree, these are the packages that it uses:
+
+- [unist-util-visit](https://github.com/syntax-tree/unist-util-visit)
 
 For any explanation of what these packages do, you must refer to their respective documentation pages listed above.
 
