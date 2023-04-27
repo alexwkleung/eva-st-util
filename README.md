@@ -36,7 +36,7 @@ static MDtoHTML_ST(dataString: string): string
 static HTMLtoMarkdown_ST(dataString: string): string
 ```
 
-3. Get a tree with Frontmatter nodes.
+3. Get a tree containing frontmatter nodes.
 
 ```typescript
 //type signature

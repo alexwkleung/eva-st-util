@@ -75,6 +75,8 @@ export class EvaSTUtil {
     /**
      * getFrontmatterTree_ST function
      *
+     * Get a tree containing frontmatter nodes
+     *
      * @param dataString Markdown string
      * @returns mdast tree with frontmatter nodes
      */
@@ -97,6 +99,8 @@ export class EvaSTUtil {
     }
     /**
      * traverseTree_ST function
+     *
+     * Traverse over a tree
      *
      * @param tree The tree to traverse over
      * @param type The node to visit
