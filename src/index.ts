@@ -10,12 +10,12 @@ import { sanitize } from 'hast-util-sanitize'
 import { math } from 'micromark-extension-math'
 import { mathFromMarkdown, mathToMarkdown } from 'mdast-util-math'
 import { frontmatterFromMarkdown } from 'mdast-util-frontmatter'
-import { frontmatter, frontmatterHtml } from 'micromark-extension-frontmatter'
+import { frontmatter } from 'micromark-extension-frontmatter'
 import { visit } from 'unist-util-visit'
 
-//create type Root as any (workaround...)
+//create generic Root type as T (workaround...)
 //this is to override the Root type from mdast lib
-type Root = any;
+type Root<T> = T;
 
 /**
  * @class EvaSTUtil
@@ -91,7 +91,7 @@ export class EvaSTUtil {
      * @param dataString Markdown string
      * @returns mdast tree with frontmatter nodes
      */
-    static getFrontmatterTree_ST(dataString: string): Root {
+    static getFrontmatterTree_ST(dataString: string): Root<any> {
         //from mdast (markdown string)
         const _mdast = fromMarkdown(dataString, {
             extensions: [
@@ -117,7 +117,7 @@ export class EvaSTUtil {
      * @param type The node to visit
      * @returns An iterable object containing the visited node
      */
-    static traverseTree_ST(tree: Root, type: string): string[] {
+    static traverseTree_ST(tree: Root<any>, type: string): string[] {
         let nodeRef: string = "";
 
         //traverse over the tree using unist visit
