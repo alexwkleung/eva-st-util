@@ -12,6 +12,7 @@ import { mathFromMarkdown, mathToMarkdown } from 'mdast-util-math';
 import { frontmatterFromMarkdown } from 'mdast-util-frontmatter';
 import { frontmatter } from 'micromark-extension-frontmatter';
 import { visit } from 'unist-util-visit';
+import { lowlight } from 'lowlight';
 /**
  * @class EvaSTUtil
  */
@@ -116,5 +117,30 @@ export class EvaSTUtil {
         const iterableNode = Object.values(nodeRef);
         //return iterable node
         return iterableNode;
+    }
+    static MDtoHTMLWithHighlight(dataString) {
+        //from mdast (markdown string)
+        const _mdast = fromMarkdown(dataString, {
+            extensions: [
+                gfm(),
+                math(),
+                frontmatter(['yaml', 'toml'])
+            ],
+            mdastExtensions: [
+                gfmFromMarkdown(),
+                mathFromMarkdown(),
+                frontmatterFromMarkdown(['yaml', 'toml'])
+            ]
+        });
+        //convert mdast to hast
+        const _hast = toHast(_mdast);
+        //convert hast to html
+        const _htmlTemp = toHtml(sanitize(_hast));
+        //create hast node with highlightjs nodes 
+        const _lowlightHl = lowlight.highlightAuto(_htmlTemp);
+        //convert hast to html (with highlight)
+        const _html = toHtml(sanitize(_lowlightHl));
+        //return html
+        return _html;
     }
 }

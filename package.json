@@ -6,8 +6,9 @@
   "typings": "src/index.d.ts",
   "type": "module",
   "scripts": {
-    "clean": "npx tsc --build --clean",
-    "build": "npm run clean && npx tsc --build"
+    "clean": "npx tsc --build --clean",    
+    "build": "npx tsc --build",
+    "build-c": "npm run clean && npx tsc --build"
   },
   "repository": {
     "type": "git",
@@ -27,6 +28,7 @@
     "hast-util-sanitize": "^4.1.0",
     "hast-util-to-html": "^8.0.3",
     "hast-util-to-mdast": "^8.4.1",
+    "lowlight": "^2.8.1",
     "mdast-util-from-markdown": "^1.2.0",
     "mdast-util-frontmatter": "^1.0.1",
     "mdast-util-gfm": "^2.0.1",
