@@ -22,12 +22,12 @@ export class EvaSTUtil {
      * Convert Markdown string to HTML string
      *
      * @member static
-     * @param dataString Markdown string
+     * @param markdown Markdown string
      * @returns Sanitized HTML string
      */
-    static MDtoHTML_ST(dataString) {
-        //from mdast (markdown string)
-        const _mdast = fromMarkdown(dataString, {
+    static MDtoHTML_ST(markdown) {
+        //to mdast
+        const _mdast = fromMarkdown(markdown, {
             extensions: [
                 gfm(),
                 math(),
@@ -52,12 +52,12 @@ export class EvaSTUtil {
      * Convert HTML string to Markdown string
      *
      * @member static
-     * @param dataString HTML string
+     * @param html HTML string
      * @returns Markdown string
      */
-    static HTMLtoMarkdown_ST(dataString) {
-        //from hast (html string)
-        const _hast = fromHtml(dataString, {
+    static HTMLtoMarkdown_ST(html) {
+        //to hast
+        const _hast = fromHtml(html, {
             fragment: true
         });
         //convert hast to mdast
@@ -77,12 +77,12 @@ export class EvaSTUtil {
      *
      * Get a tree containing frontmatter nodes
      *
-     * @param dataString Markdown string
+     * @param markdown Markdown string
      * @returns mdast tree with frontmatter nodes
      */
-    static getFrontmatterTree_ST(dataString) {
+    static getFrontmatterTree_ST(markdown) {
         //from mdast (markdown string)
-        const _mdast = fromMarkdown(dataString, {
+        const _mdast = fromMarkdown(markdown, {
             extensions: [
                 gfm(),
                 math(),
@@ -116,5 +116,91 @@ export class EvaSTUtil {
         const iterableNode = Object.values(nodeRef);
         //return iterable node
         return iterableNode;
+    }
+    /**
+     * MDtoHast_ST function
+     *
+     * Markdown string to hast tree
+     *
+     * @param markdown Markdown string
+     * @returns hast tree
+     */
+    static MDtoHast_ST(markdown) {
+        //to mdast
+        const _mdast = fromMarkdown(markdown, {
+            extensions: [
+                gfm(),
+                math(),
+                frontmatter(['yaml', 'toml'])
+            ],
+            mdastExtensions: [
+                gfmFromMarkdown(),
+                mathFromMarkdown(),
+                frontmatterFromMarkdown(['yaml', 'toml'])
+            ]
+        });
+        //convert mdast to hast
+        const _hast = toHast(_mdast);
+        //return hast 
+        return _hast;
+    }
+    /**
+     * HTMLtoMdast_ST function
+     *
+     * HTML string to mdast tree
+     *
+     * @param html HTML string
+     * @returns mdast tree
+     */
+    static HTMLtoMdast_ST(html) {
+        //to hast
+        const _hast = fromHtml(html, {
+            fragment: true
+        });
+        //convert hast to mdast
+        const _mdast = toMdast(_hast);
+        //return mdast
+        return _mdast;
+    }
+    /**
+     * MDtoMdast_ST function
+     *
+     * Markdown string to mdast tree
+     *
+     * @param markdown Markdown string
+     * @returns mdast tree
+     */
+    static MDtoMdast_ST(markdown) {
+        //to mdast
+        const _mdast = fromMarkdown(markdown, {
+            extensions: [
+                gfm(),
+                math(),
+                frontmatter(['yaml', 'toml'])
+            ],
+            mdastExtensions: [
+                gfmFromMarkdown(),
+                mathFromMarkdown(),
+                frontmatterFromMarkdown(['yaml', 'toml'])
+            ]
+        });
+        //return mdast 
+        return _mdast;
+    }
+    /**
+     * HTMLtoHast_ST function
+     *
+     * HTML string to hast tree
+     *
+     * @param html HTML string
+     * @returns hast tree
+     */
+    static HTMLtoHast_ST(html) {
+        //to hast
+        const _hast = fromHtml(html, {
+            fragment: true
+        });
+        //return hast
+        return _hast;
     }
 }
