@@ -12,7 +12,6 @@ import { mathFromMarkdown, mathToMarkdown } from 'mdast-util-math'
 import { frontmatterFromMarkdown } from 'mdast-util-frontmatter'
 import { frontmatter } from 'micromark-extension-frontmatter'
 import { visit } from 'unist-util-visit'
-import { lowlight } from 'lowlight'
 
 //create generic Root type as T (workaround...)
 //this is to override the Root type from mdast lib
@@ -135,36 +134,5 @@ export class EvaSTUtil {
 
         //return iterable node
         return iterableNode;
-    }
-
-    static MDtoHTMLWithHighlight(dataString: string): string {
-         //from mdast (markdown string)
-         const _mdast = fromMarkdown(dataString, {
-            extensions: [
-                gfm(),
-                math(),
-                frontmatter(['yaml', 'toml'])
-            ],
-            mdastExtensions: [
-                gfmFromMarkdown(), 
-                mathFromMarkdown(), 
-                frontmatterFromMarkdown(['yaml', 'toml'])
-            ]
-        });
-
-        //convert mdast to hast
-        const _hast = toHast(_mdast)!;
-
-        //convert hast to html
-        const _htmlTemp: string = toHtml(sanitize(_hast));
-
-        //create hast node with highlightjs nodes 
-        const _lowlightHl = lowlight.highlightAuto(_htmlTemp);
-
-        //convert hast to html (with highlight)
-        const _html: string = toHtml(_lowlightHl);
-
-        //return html
-        return _html;
     }
 }
