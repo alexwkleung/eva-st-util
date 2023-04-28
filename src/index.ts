@@ -162,7 +162,7 @@ export class EvaSTUtil {
         const _lowlightHl = lowlight.highlightAuto(_htmlTemp);
 
         //convert hast to html (with highlight)
-        const _html: string = toHtml(sanitize(_lowlightHl));
+        const _html: string = toHtml(_lowlightHl);
 
         //return html
         return _html;

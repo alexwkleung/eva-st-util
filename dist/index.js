@@ -139,7 +139,7 @@ export class EvaSTUtil {
         //create hast node with highlightjs nodes 
         const _lowlightHl = lowlight.highlightAuto(_htmlTemp);
         //convert hast to html (with highlight)
-        const _html = toHtml(sanitize(_lowlightHl));
+        const _html = toHtml(_lowlightHl);
         //return html
         return _html;
     }
