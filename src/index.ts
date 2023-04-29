@@ -37,12 +37,10 @@ export class EvaSTUtil {
         const _mdast = fromMarkdown(markdown, {
             extensions: [
                 gfm(),
-                math(),
                 frontmatter(['yaml', 'toml'])
             ],
             mdastExtensions: [
-                gfmFromMarkdown(), 
-                mathFromMarkdown(), 
+                gfmFromMarkdown(),
                 frontmatterFromMarkdown(['yaml', 'toml'])
             ]
         });
@@ -232,5 +230,39 @@ export class EvaSTUtil {
 
         //return hast
         return _hast;
+    }
+
+    /**
+     * MDtoHTMLNoSanitization function
+     * 
+     * Convert Markdown string to HTML string without sanitization. This allows extensions such as math to 
+     * work. It keeps the nodes in the tree without being removed by sanitization rules
+     * 
+     * @param markdown Markdown string
+     * @returns HTML string (not sanitized)
+     */
+    static MDtoHTMLNoSanitization_ST(markdown: string): string {
+        //to mdast
+        const _mdast = fromMarkdown(markdown, {
+            extensions: [
+                gfm(),
+                math(),
+                frontmatter(['yaml', 'toml'])
+            ],
+            mdastExtensions: [
+                gfmFromMarkdown(),
+                mathFromMarkdown(),
+                frontmatterFromMarkdown(['yaml', 'toml'])
+            ]
+        });
+
+        //convert mdast to hast
+        const _hast = toHast(_mdast)!;
+
+        //convert hast to html
+        const _html: string = toHtml(sanitize(_hast));
+
+        //return html
+        return _html;
     }
 }

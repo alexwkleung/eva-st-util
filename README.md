@@ -50,6 +50,41 @@ static getFrontmatterTree_ST(dataString: string): Root<any>
 static traverseTree_ST(tree: Root<any>, type: string): string[]
 ```
 
+5. Convert Markdown to hast 
+
+```typescript
+//type signature
+static MDtoHast_ST(markdown: string): HastNode<any>
+```
+
+6. Convert HTML to mdast
+
+```typescript
+//type signature
+static HTMLtoMdast_ST(html: string): Root<any>
+```
+
+7. Convert Markdown to mdast 
+
+```typescript
+//type signature
+static MDtoMdast_ST(markdown: string): Root<any>
+```
+
+8. Convert HTML to hast
+
+```typescript
+//type signature
+static HTMLtoHast_ST(html: string): Root<any>
+```
+
+9. Convert Markdown to HTML without sanitization.
+
+```typescript
+//type signature
+static MDtoHTMLNoSanitization_ST(markdown: string): string
+```
+
 Go to [Example Usage](#example-usage) to see how to use these functions.
 
 For converting Markdown to HTML, these are the packages that it uses:
@@ -66,8 +101,6 @@ For converting Markdown to HTML, these are the packages that it uses:
 
 - [hast-util-sanitize](https://github.com/syntax-tree/hast-util-sanitize)
 
-- [mdast-util-math](https://github.com/syntax-tree/mdast-util-math)
-
 For converting HTML to Markdown, these are the packages that it uses:
 
 - [hast-util-from-html](https://github.com/syntax-tree/hast-util-from-html)
@@ -80,8 +113,6 @@ For converting HTML to Markdown, these are the packages that it uses:
 
 - [micromark-extension-gfm](https://github.com/micromark/micromark-extension-gfm)
 
-- [mdast-util-math](https://github.com/syntax-tree/mdast-util-math)
-
 For getting a tree with Frontmatter nodes, these are the packages that it uses:
 
 - [mdast-util-frontmatter](https://github.com/syntax-tree/mdast-util-frontmatter)
@@ -91,6 +122,12 @@ For getting a tree with Frontmatter nodes, these are the packages that it uses:
 For traversing over a tree, these are the packages that it uses:
 
 - [unist-util-visit](https://github.com/syntax-tree/unist-util-visit)
+
+Other packages:
+
+- [mdast-util-math](https://github.com/syntax-tree/mdast-util-math)
+
+- [micromark-extension-math](https://github.com/micromark/micromark-extension-math)
 
 For any explanation of what these packages do, you must refer to their respective documentation pages listed above.
 
@@ -147,6 +184,8 @@ Then it would return this:
 # header 1
 hello world
 ```
+
+Other examples will be added later.
 
 # License 
 
