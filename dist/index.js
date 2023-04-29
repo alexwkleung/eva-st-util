@@ -205,7 +205,9 @@ export class EvaSTUtil {
      * MDtoHTMLNoSanitization function
      *
      * Convert Markdown string to HTML string without sanitization. This allows extensions such as math to
-     * work. It keeps the nodes in the tree without being removed by sanitization rules
+     * work. It keeps the nodes in the tree without being removed by sanitization rules.
+     *
+     * Note: This is considered unsafe.
      *
      * @param markdown Markdown string
      * @returns HTML string (not sanitized)
