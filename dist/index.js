@@ -227,7 +227,7 @@ export class EvaSTUtil {
         //convert mdast to hast
         const _hast = toHast(_mdast);
         //convert hast to html
-        const _html = toHtml(sanitize(_hast));
+        const _html = toHtml(_hast);
         //return html
         return _html;
     }

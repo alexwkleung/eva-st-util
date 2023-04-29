@@ -260,7 +260,7 @@ export class EvaSTUtil {
         const _hast = toHast(_mdast)!;
 
         //convert hast to html
-        const _html: string = toHtml(sanitize(_hast));
+        const _html: string = toHtml(_hast);
 
         //return html
         return _html;
